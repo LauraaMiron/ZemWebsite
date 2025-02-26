@@ -1,0 +1,542 @@
+.why-join-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  background: linear-gradient(90deg, #bbd7f4, #004080);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  color: white;
+  overflow: hidden;
+  position: relative;
+  animation: fadeIn 1s ease-in-out;
+ 
+}
+
+.why-join-text {
+  width: 50%;
+  text-align: left;
+  animation: slideInLeft 1s ease-in-out;
+}
+
+.why-join-text h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2e93b5;
+  transition: color 0.3s ease-in-out;
+}
+
+.why-join-text h2:hover {
+  color: #7d99a1;
+}
+
+.why-join-text p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: white;
+}
+
+.bold-text {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.highlight {
+  color: #38cdff;
+}
+.navbar-brand img {
+  height: 50px; 
+  width: auto;
+  vertical-align: middle; 
+}
+/* 🔹 Right Image Section */
+.image-container {
+  width: 50%; /* Decreased from 40% */
+  display: flex;
+  justify-content: center;
+}
+
+.animated-image {
+  width: 50%; /* Reduced significantly */
+  max-width: 100%; /* Explicit smaller max-width */
+  border-radius: 10px;
+  transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Image Hover Effect */
+.animated-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.3);
+}
+
+
+/* 🔹 Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* 🔹 Navbar */
+.navbar {
+  width: 100%;
+  background: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between; /* ✅ Logo left, menu right */
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  height: 80px;
+}
+
+/* 🔹 Navbar Brand (Logo) */
+.navbar-brand img {
+  height: 60px; /* ✅ Adjust logo height */
+  width: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* 🔹 Remove list styling from menu */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 20px; /* ✅ Moves it to the right */
+  top: 50%; /* ✅ Aligns to center */
+  transform: translateY(-50%);
+  list-style: none; /* ✅ Removes the bullet point */
+}
+
+/* 🔹 Make "Menu" bigger & better */
+.nav-link {
+  color: black;
+  font-size: 1.4rem; /* ✅ Makes it larger */
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* 🔹 Hover Effect */
+.nav-link:hover {
+  color: #649ae1;
+}
+
+/* 🔹 Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Ensures it appears just below the menu */
+  right: 0;
+  min-width: 180px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  list-style: none; /* 🔹 Removes the bullet points */
+}
+.dropdown-item {
+  display: block;
+  padding: 12px 20px;
+  font-size: 1.2rem; /* 🔹 Increases font size */
+  color: black;
+  text-decoration: none;
+  transition: background 0.3s ease-in-out;
+}
+/* 🔹 Show dropdown when hovered */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-item:hover {
+  background: #69b9e7;
+  color: white;
+  border-radius: 3px;
+}
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin-top: 80px; 
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.overlay h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.overlay h3, .overlay h4 {
+    font-size: 1.8rem;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .nav-item {
+        margin-bottom: 10px;
+    }
+
+    .overlay h1 {
+        font-size: 2.5rem;
+    }
+
+    .overlay h3, .overlay h4 {
+        font-size: 1.5rem;
+    }
+}
+/* 🔹 Scientific Program Section - Full Layout */
+.scientific-program {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 10%;
+  background: #f8f9fa;
+  position: relative;
+  gap: 40px; /* ✅ Space between sections */
+}
+
+/* 🔹 Left Side - Vertical "EVENTS | ZEM" */
+.events-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #550000;
+  margin-right: 40px;
+}
+
+/* 🔹 Right Side - Title & Description */
+.program-content {
+  flex: 1;
+  text-align: left;
+  max-width: 600px;
+}
+
+.program-title {
+  font-size: 1rem;
+  color: #6c5c5c;
+  text-transform: uppercase;
+}
+
+.program-subtitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #550000;
+  margin-bottom: 15px;
+  line-height: 1.2; /* ✅ Better spacing */
+}
+
+.program-description {
+  font-size: 1.2rem;
+  color: #4b4b4b;
+  width: 900px; /* ✅ Prevents text from stretching */
+}
+
+/* 🔹 Events Row */
+.events-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 0;
+}
+
+/* 🔹 Event Cards */
+.event-card {
+  position: relative;
+  width: 250px; /* ✅ Increase size */
+  height: 350px; /* ✅ Increase height */
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* 🔹 Hover Effect - Cover Entire Image */
+.event-card .event-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* 🔹 Show Overlay on Hover */
+.event-card:hover .event-overlay {
+  opacity: 1;
+}
+
+/* 🔹 Add slight zoom effect to image */
+.event-card:hover img {
+  transform: scale(1.1);
+}
+
+/* 🔹 Responsive Layout */
+@media (max-width: 768px) {
+  .scientific-program {
+      flex-direction: column;
+      text-align: center;
+  }
+  
+  .events-title {
+      display: none; /* Hide vertical text on smaller screens */
+  }
+
+  .program-content {
+      text-align: center;
+      max-width: 100%;
+      margin-bottom: 20px;
+  }
+}
+/* 🔹 Benefits Section */
+.benefits-section {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+    height: 600px; /* Increased height */
+    overflow: hidden;
+}
+
+/* 🔹 Benefit Card Styling */
+.benefit-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px; /* Increased padding */
+    text-align: center;
+    height: 100%;
+}
+
+/* 🔹 Light Background (Left) */
+.light-bg {
+    background: #f8f5ed;
+    color: #5e9db1;
+}
+
+/* 🔹 Dark Background (Middle) */
+.dark-bg {
+    background: #36366a;
+    color: white;
+}
+
+/* 🔹 Right Image Section */
+.benefit-image {
+    flex: 1.5; /* ✅ Make it larger */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+.benefit-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 1000px) {
+    .benefits-section {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .benefit-card {
+        padding: 30px;
+    }
+    
+    .benefit-image {
+        height: 600px;
+    }
+}
+/* 🔹 Center Login Form Properly */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 120px; /* ✅ Ensures space below the navbar */
+  background: linear-gradient(135deg, #004080, #001F3F);
+}
+
+/* 🔹 Login Box (Card) */
+.login-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px; /* ✅ Keeps it compact */
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* 🔹 Fix Navbar Overlapping */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+}
+
+/* 🔹 Style Form Inputs */
+.form-floating input {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #004080;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.form-floating label {
+  color: #004080;
+  font-size: 0.9rem;
+}
+
+/* 🔹 Buttons Styling */
+.btn-primary {
+  background: #004080 !important;
+  border: none;
+  padding: 10px;
+  width: 48%; /* ✅ Ensures both buttons are the same size */
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #00264D !important;
+}
+
+.btn-secondary {
+  background: #b30000 !important;
+  border: none;
+  padding: 10px;
+  width: 48%; /* ✅ Matches Log in button size */
+}
+
+.btn-secondary:hover {
+  background: #800000 !important;
+}
+
+/* 🔹 Align Buttons */
+.d-flex {
+  justify-content: space-between;
+}
+
+/* 🔹 Forgot Password Styling */
+#forgot-password {
+  display: block;
+  margin-top: 10px;
+  color: #b30000;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#forgot-password:hover {
+  color: #800000;
+}
+
+/* 🔹 Fade-in Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔹 Responsive Fixes */
+@media (max-width: 768px) {
+  .login-box {
+      width: 90%;
+  }
+  .btn-primary,
+  .btn-secondary {
+      width: 100%; /* ✅ Full width on mobile */
+      margin-bottom: 10px;
+  }
+}
+
+
+
+
+
+
+

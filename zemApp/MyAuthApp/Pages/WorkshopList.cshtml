@@ -1,0 +1,112 @@
+@page
+@model MyAuthApp.Pages.WorkshopListModel
+@{
+    ViewData["Title"] = "Workshop Management";
+}
+
+<h2>Welcome, @Model.Username!</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Date & Time</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var workshop in Model.Workshops)
+        {
+            <tr>
+                <td>@workshop.Name</td>
+                <td>@workshop.Description</td>
+                <td>@workshop.DateTime.ToString("yyyy-MM-dd HH:mm")</td>
+                <td>@workshop.Category</td>
+                <td>
+                    <button class="btn btn-warning" onclick="openEditModal('@workshop.Id', '@workshop.Name', '@workshop.Description', '@workshop.DateTime.ToString("yyyy-MM-ddTHH:mm")', '@workshop.Category')">
+                        Edit
+                    </button>
+
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@workshop.Id" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Add a New Workshop</h3>
+<form method="post">
+    <div class="form-group">
+        <label>Name:</label>
+        <input asp-for="NewWorkshop.Name" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Description:</label>
+        <input asp-for="NewWorkshop.Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Date & Time:</label>
+        <input asp-for="NewWorkshop.DateTime" type="datetime-local" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Category:</label>
+        <input asp-for="NewWorkshop.Category" class="form-control" required />
+    </div>
+    <button type="submit" asp-page-handler="Add" class="btn btn-primary">Add Workshop</button>
+</form>
+
+
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeEditModal()">&times;</span>
+        <h3>Edit Workshop</h3>
+        <form method="post">
+            <input type="hidden" asp-for="EditWorkshop.Id" id="editId" />
+            <div class="form-group">
+                <label>Name:</label>
+                <input asp-for="EditWorkshop.Name" class="form-control" id="editName" required />
+            </div>
+            <div class="form-group">
+                <label>Description:</label>
+                <input asp-for="EditWorkshop.Description" class="form-control" id="editDescription" />
+            </div>
+            <div class="form-group">
+                <label>Date & Time:</label>
+                <input asp-for="EditWorkshop.DateTime" type="datetime-local" class="form-control" id="editDateTime" required />
+            </div>
+            <div class="form-group">
+                <label>Category:</label>
+                <input asp-for="EditWorkshop.Category" class="form-control" id="editCategory" required />
+            </div>
+            <button type="submit" asp-page-handler="Update" class="btn btn-success">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openEditModal(id, name, description, dateTime, category) {
+        document.getElementById('editId').value = id;
+        document.getElementById('editName').value = name;
+        document.getElementById('editDescription').value = description;
+        document.getElementById('editDateTime').value = dateTime;
+        document.getElementById('editCategory').value = category;
+        document.getElementById('editModal').style.display = "block";
+    }
+
+    function closeEditModal() {
+        document.getElementById('editModal').style.display = "none";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form[asp-page-handler='Update']");
+        if (form) {
+            form.addEventListener("submit", function () {
+                closeEditModal(); s
+            });
+        }
+    });
+</script>

@@ -1,0 +1,61 @@
+@using Microsoft.AspNetCore.Identity
+@using MyAuthApp.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MyAuthApp</title>
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="~/">
+                    <img src="/images/logo.jpg">
+                </a>
+
+                <!-- ✅ Dropdown Menu on the Right -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                       <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button">
+        Menu
+    </a>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" asp-page="/AboutUs">About us</a></li>
+        <li><a class="dropdown-item" asp-page="/WorkshopList">Workshops</a></li>
+        <li><a class="dropdown-item" href="#">Partners</a></li>
+        <li><a class="dropdown-item" asp-page="/Contact">Contact</a></li>
+<li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+
+    </ul>
+</li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
